@@ -1,0 +1,13 @@
+{
+  "name": "MedicalApi",
+  "image": "mcr.microsoft.com/devcontainers/dotnet:1-9.0",
+  "forwardPorts": [5036],
+  "portsAttributes": {
+    "5036": {
+      "label": "MedicalApi",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "postCreateCommand": "dotnet restore",
+  "postAttachCommand": "dotnet run --launch-profile http"
+}
