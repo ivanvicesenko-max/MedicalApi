@@ -129,7 +129,7 @@ public class PatientsController : ControllerBase
         }
         if (patient.BirthDate == default)
         {
-            return "Укажите дату рождения в формате ГГГГ-ММ-ДД, например 2000-05-15";
+            return "Укажите дату рождения в формате ГГГГ-ММ-ДД, например 1996-03-22";
         }
         if (patient.BirthDate > DateTime.Now)
         {
@@ -152,7 +152,7 @@ public class PatientsController : ControllerBase
             string digits = patient.Phone.StartsWith("+") ? patient.Phone.Substring(1) : patient.Phone;
             if (digits.Length < 10 || digits.Length > 15 || !digits.All(char.IsAsciiDigit))
             {
-                return "Телефон должен содержать от 10 до 15 цифр, можно с + в начале, например +77011234567";
+                return "Телефон должен содержать от 10 до 15 цифр, можно с + в начале, например +77779876543";
             }
         }
         if (patient.Address.Length > 200)

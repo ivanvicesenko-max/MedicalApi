@@ -9,14 +9,14 @@ POST {{MedicalApi_HostAddress}}/api/patients
 Content-Type: application/json
 
 {
-  "name": "Alice",
-  "birthDate": "2000-05-15",
-  "iin": "000515400123",
-  "phone": "",
-  "address": "",
-  "isMale": false,
-  "uchastok": 5,
-  "hasInsurance": true
+  "name": "Ерлан Сапаров",
+  "birthDate": "1996-03-22",
+  "iin": "960322300456",
+  "phone": "+77074561239",
+  "address": "мкр. Самал-2, д. 15",
+  "isMale": true,
+  "uchastok": 12,
+  "hasInsurance": false
 }
 
 ###
@@ -46,10 +46,10 @@ Content-Type: application/json
 
 {
   "patientId": 1,
-  "doctorName": "Иванова А.С.",
-  "specialty": "терапевт",
-  "startTime": "2026-12-01T10:30",
-  "cabinet": 12,
+  "doctorName": "Ахметова Д.Р.",
+  "specialty": "невролог",
+  "startTime": "2026-12-03T14:45",
+  "cabinet": 27,
   "complaint": "",
   "spravkaId": 1
 }

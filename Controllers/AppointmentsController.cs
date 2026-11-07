@@ -12,7 +12,7 @@ public class AppointmentsController : ControllerBase
     // Счётчик только растёт: Id удалённых записей не достаются новым
     private static int _nextId = 1;
 
-    // GET /api/appointments?patientId=1&doctorName=Иванова&date=2026-11-10, все фильтры необязательные.
+    // GET /api/appointments?patientId=1&doctorName=Ахметова&date=2026-12-03, все фильтры необязательные.
     // Записи отсортированы по времени, так удобнее смотреть расписание
     [HttpGet]
     public List<Appointment> GetAll(int? patientId, string? doctorName, DateTime? date)
@@ -128,7 +128,7 @@ public class AppointmentsController : ControllerBase
         }
         if (appointment.StartTime == default)
         {
-            return "Укажите дату и время приёма в формате ГГГГ-ММ-ДДTЧЧ:ММ, например 2026-12-01T10:30";
+            return "Укажите дату и время приёма в формате ГГГГ-ММ-ДДTЧЧ:ММ, например 2026-12-03T14:45";
         }
         if (appointment.StartTime.DayOfWeek == DayOfWeek.Sunday)
         {
