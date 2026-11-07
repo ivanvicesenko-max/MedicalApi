@@ -1,0 +1,62 @@
+@MedicalApi_HostAddress = http://localhost:5036
+
+GET {{MedicalApi_HostAddress}}/api/spravkatypes
+Accept: application/json
+
+###
+
+POST {{MedicalApi_HostAddress}}/api/patients
+Content-Type: application/json
+
+{
+  "name": "Alice",
+  "birthDate": "2000-05-15",
+  "iin": "000515400123",
+  "phone": "",
+  "address": "",
+  "isMale": false,
+  "uchastok": 5,
+  "hasInsurance": true
+}
+
+###
+
+GET {{MedicalApi_HostAddress}}/api/patients
+Accept: application/json
+
+###
+
+POST {{MedicalApi_HostAddress}}/api/spravki
+Content-Type: application/json
+
+{
+  "patientId": 1,
+  "spravkaTypeId": 3
+}
+
+###
+
+GET {{MedicalApi_HostAddress}}/api/patients/1/spravki
+Accept: application/json
+
+###
+
+POST {{MedicalApi_HostAddress}}/api/appointments
+Content-Type: application/json
+
+{
+  "patientId": 1,
+  "doctorName": "Иванова А.С.",
+  "specialty": "терапевт",
+  "startTime": "2026-12-01T10:30",
+  "cabinet": 12,
+  "complaint": "",
+  "spravkaId": 1
+}
+
+###
+
+GET {{MedicalApi_HostAddress}}/api/spravki/stats
+Accept: application/json
+
+###
