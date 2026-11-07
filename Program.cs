@@ -4,7 +4,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers(o => o.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+builder.Services.AddOpenApi(o => o.AddDocumentTransformer((document, context, cancellationToken) =>
+{
+    document.Servers.Clear();
+    return Task.CompletedTask;
+}));
 
 var app = builder.Build();
 
