@@ -1,14 +1,16 @@
+using MedicalApi.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<MedicalDbContext>(o =>
+    o.UseNpgsql(builder.Configuration.GetConnectionString("Medical")));
 
 // Add services to the container.
 
-builder.Services.AddControllers(o => o.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
+builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi(o => o.AddDocumentTransformer((document, context, cancellationToken) =>
-{
-    document.Servers.Clear();
-    return Task.CompletedTask;
-}));
+builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
@@ -17,7 +19,6 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
     app.UseSwaggerUI(o => o.SwaggerEndpoint("/openapi/v1.json","v1"));
-    app.MapGet("/", () => Results.Redirect("/swagger")).ExcludeFromDescription();
 }
 
 app.UseHttpsRedirection();

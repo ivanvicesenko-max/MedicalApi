@@ -1,62 +1,6 @@
 @MedicalApi_HostAddress = http://localhost:5036
 
-GET {{MedicalApi_HostAddress}}/api/spravkatypes
-Accept: application/json
-
-###
-
-POST {{MedicalApi_HostAddress}}/api/patients
-Content-Type: application/json
-
-{
-  "name": "Ерлан Сапаров",
-  "birthDate": "1996-03-22",
-  "iin": "960322300456",
-  "phone": "+77074561239",
-  "address": "мкр. Самал-2, д. 15",
-  "isMale": true,
-  "uchastok": 12,
-  "hasInsurance": false
-}
-
-###
-
-GET {{MedicalApi_HostAddress}}/api/patients
-Accept: application/json
-
-###
-
-POST {{MedicalApi_HostAddress}}/api/spravki
-Content-Type: application/json
-
-{
-  "patientId": 1,
-  "spravkaTypeId": 3
-}
-
-###
-
-GET {{MedicalApi_HostAddress}}/api/patients/1/spravki
-Accept: application/json
-
-###
-
-POST {{MedicalApi_HostAddress}}/api/appointments
-Content-Type: application/json
-
-{
-  "patientId": 1,
-  "doctorName": "Ахметова Д.Р.",
-  "specialty": "невролог",
-  "startTime": "2026-12-03T14:45",
-  "cabinet": 27,
-  "complaint": "",
-  "spravkaId": 1
-}
-
-###
-
-GET {{MedicalApi_HostAddress}}/api/spravki/stats
+GET {{MedicalApi_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
