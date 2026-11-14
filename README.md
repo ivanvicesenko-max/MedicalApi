@@ -8,13 +8,35 @@ Web API для частной клиники: пациенты, справки, 
 Swagger / сайт  --HTTP-->  MedicalApi  --SQL-->  PostgreSQL (порт 5432)
 ```
 
-## Что нужно
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/ivanvicesenko-max/MedicalApi)
+
+## Запуск в браузере (Codespaces)
+
+Нажать кнопку выше. Первый запуск занимает несколько минут: Codespaces сам
+
+1. поднимает два контейнера: `app` с .NET 10 и `db` с PostgreSQL 17 (`.devcontainer/docker-compose.yml`);
+2. ставит `dotnet-ef` и применяет миграции, база `medical` и таблицы создаются сами;
+3. заполняет каталог видов справок из `sql/medical-seed.sql`;
+4. запускает сервер. Swagger откроется по адресу вида `https://...-5036.app.github.dev/swagger`.
+
+Посмотреть базу из терминала Codespace:
+
+```bash
+psql -h localhost -U postgres -d medical   # пароль postgres
+SELECT * FROM "Patients";
+```
+
+Данные лежат в отдельном томе и не пропадают, когда Codespace останавливается.
+
+## Запуск на своём компьютере
+
+### Что нужно
 
 - .NET 10 SDK
 - PostgreSQL (с pgAdmin), порт 5432
 - инструмент миграций: `dotnet tool install --global dotnet-ef --version 10.0.0`
 
-## Запуск
+### Шаги
 
 1. Проверить строку подключения в `appsettings.json` и поставить свой пароль от пользователя `postgres`:
 
